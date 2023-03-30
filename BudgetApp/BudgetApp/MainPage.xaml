@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model ="clr-namespace:BudgetApp.Models"
+             x:Class="BudgetApp.MainPage">
+
+    <StackLayout>
+        <Button x:Name="NewToDo" Text="New" Clicked="NewToDo_Clicked" />
+        <ListView x:Name="ToDoListView"
+                  Margin="20"
+                  ItemSelected="ToDoListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:ToDo">
+                    <TextCell Text="{Binding Text}"
+                              Detail="{Binding Date}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
