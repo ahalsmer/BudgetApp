@@ -1,4 +1,5 @@
 ﻿using BudgetApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,12 +42,35 @@ namespace BudgetApp
             });
         }
 
-        private void NewToDo_Clicked(object sender, EventArgs e)
+        private void Add_Goals(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ToDoPage
+
+            string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
+
+            if (File.Exists(FileName))
             {
-                BindingContext = new ToDo()
-            });
+                string json = File.ReadAllText(FileName);
+                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
+
+                Navigation.PushModalAsync(new GoalPage
+                {
+                    BindingContext = goals
+                });
+
+                goal.Text = "Update Your Goals";
+
+            }
+            else
+            {
+
+                Navigation.PushModalAsync(new GoalPage
+                {
+                    BindingContext = new Goal()
+                });
+
+                goal.Text = "Update Your Goals";
+
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
              x:Class="BudgetApp.MainPage">
 
     <StackLayout>
-        <Button x:Name="NewToDo" Text="New" Clicked="NewToDo_Clicked" />
+        <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
         <ListView x:Name="ToDoListView"
                   Margin="20"
                   ItemSelected="ToDoListView_ItemSelected">
