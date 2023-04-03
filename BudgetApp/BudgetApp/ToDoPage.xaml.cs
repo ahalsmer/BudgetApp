@@ -20,7 +20,7 @@ namespace BudgetApp
         }
         protected override void OnAppearing()
         {
-            var todo = (ToDo)BindingContext;
+            var todo = (NewExpense)BindingContext;
             if (todo != null && !string.IsNullOrEmpty(todo.FileName))
             {
                 ToDoText.Text = File.ReadAllText(todo.FileName);
@@ -29,9 +29,9 @@ namespace BudgetApp
 
         private void OnSaveButton_Clicked(object sender, EventArgs e)
         {
-            var todo = (ToDo)BindingContext;
-            todo.Text = ToDoText.Text;
-            if (string.IsNullOrEmpty(todo.FileName))
+            var newExpense = (NewExpense)BindingContext;
+            newExpense.Text = ToDoText.Text;
+            if (string.IsNullOrEmpty(newExpense.FileName))
             {
                 todo.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
             }
@@ -44,7 +44,7 @@ namespace BudgetApp
 
         private void OnDeleteButton_Clicked(object sender, EventArgs e)
         {
-            var todo = (ToDo)BindingContext;
+            var todo = (NewExpense)BindingContext;
             if (File.Exists(todo.FileName))
             {
                 File.Delete(todo.FileName);

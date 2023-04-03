@@ -4,10 +4,12 @@ using System.Text;
 
 namespace BudgetApp.Models
 {
-    internal class ToDo
+    internal class NewExpense
     {
-        public string Text { get; set; }
+        public string Expense { get; set; }
+        public string Amount { get; set; }
         public DateTime Date { get; set; }
+        public string Type { get; set; }
         public string FileName { get; set; }
     }
 }

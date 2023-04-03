@@ -3,19 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model ="clr-namespace:BudgetApp.Models"
              x:Class="BudgetApp.MainPage">
-
-    <StackLayout>
-        <Button x:Name="NewToDo" Text="New" Clicked="NewToDo_Clicked" />
-        <ListView x:Name="ToDoListView"
-                  Margin="20"
-                  ItemSelected="ToDoListView_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:ToDo">
-                    <TextCell Text="{Binding Text}"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="LightSteelBlue">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Image Width="100" 
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Source="Assets/Images/money-in-hand-icon.png" />
+            </StackPanel>
+        </Border>
+    </Grid>
+    <Border Grid.Row="2"
+            Background="LightSteelBlue">
+        <StackLayout>
+            <Button x:Name="NewExpense" Text="New Expense" Clicked="NewExpense_Clicked" />
+            <ListView x:Name="NewExpenseListView"
+                      Margin="20"
+                      ItemSelected="NewExpenseListView_ItemSelected"
+                      Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NewExpense">
+                        <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c'}"
+                              Text="{Binding Expense}"
                               Detail="{Binding Date}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Border>
 
 </ContentPage>

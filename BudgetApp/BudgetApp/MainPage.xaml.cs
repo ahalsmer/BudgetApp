@@ -18,34 +18,43 @@ namespace BudgetApp
         }
         protected override void OnAppearing()
         {
-            var todos = new List<ToDo>();
+            // declaring expenses which is the list of new files getting sorted through the NewExpense class
+            var expenses = new List<NewExpense>();
+            // returns an enumerable collection of file names in the specified format
             var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.notes.txt");
             foreach (var file in files)
             {
-                var todo = new ToDo()
-                {
-                    Text = File.ReadAllText(file),
+                // for each file in the in the aforementioned list, read the amount, expense, date, and type
+                var expense = new NewExpense()
+                {   
+                    // How can I read just the text of the specific detail in the file separately
+                    Amount = File.ReadAllText(file),
+                    Expense = File.ReadAllText(file),
+                    // How can I read the date that the user inputs?
                     Date = File.GetCreationTime(file),
+                    Type = File.ReadAllText(file),
                     FileName = file
                 };
-                todos.Add(todo);
+                // add each expense to a list of expenses
+                expenses.Add(expense);
             }
-            ToDoListView.ItemsSource = todos.OrderByDescending(t => t.Date);
+            // place expense items in descending order by date
+            NewExpenseListView.ItemsSource = expenses.OrderByDescending(t => t.Date);
         }
 
-        private void ToDoListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void NewExpenseListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushModalAsync(new ToDoPage
             {
-                BindingContext = (ToDo)e.SelectedItem
+                BindingContext = (NewExpense)e.SelectedItem
             });
         }
 
-        private void NewToDo_Clicked(object sender, EventArgs e)
+        private void NewExpense_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new ToDoPage
             {
-                BindingContext = new ToDo()
+                BindingContext = new NewExpense()
             });
         }
     }
