@@ -4,11 +4,13 @@
              xmlns:model ="clr-namespace:BudgetApp.Models"
              x:Class="BudgetApp.MainPage">
     <Grid>
+        <!-- three rows -->
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="8*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+        <!-- top banner and coin in hand logo -->
         <Border Grid.Row="0" Background="LightSteelBlue">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
@@ -16,27 +18,32 @@
                 <Image Width="100" 
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       Source="Assets/Images/money-in-hand-icon.png" />
+                       Source="Assets/Images/coin-in-hand.png" />
             </StackPanel>
         </Border>
-    </Grid>
-    <Border Grid.Row="2"
-            Background="LightSteelBlue">
-        <StackLayout>
-            <Button x:Name="NewExpense" Text="New Expense" Clicked="NewExpense_Clicked" />
-            <ListView x:Name="NewExpenseListView"
+        <!-- Add New Expense button and list of expenses -->
+        <Border Background="LightSteelBlue">
+            <StackLayout>
+                <Button x:Name="NewExpense" 
+                        Text="New Expense" 
+                        Clicked="NewExpense_Clicked" 
+                        Grid.Row="2" />
+                <ListView x:Name="NewExpenseListView"
                       Margin="20"
                       ItemSelected="NewExpenseListView_ItemSelected"
                       Grid.Row="1">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:NewExpense">
-                        <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c'}"
-                              Text="{Binding Expense}"
-                              Detail="{Binding Date}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </Border>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:NewExpense">
+                            <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c}'
+                                Detail="{Binding Date}" />
+                                <!-- want to add the associated category icon here -->
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Border>
+
+    </Grid>
+
 
 </ContentPage>

@@ -16,8 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ToDoPage.xaml">
+    <EmbeddedResource Update="NewExpensePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NewExpensePage.xaml.cs">
+      <DependentUpon>NewExpensePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

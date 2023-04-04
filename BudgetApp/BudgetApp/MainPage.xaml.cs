@@ -29,7 +29,6 @@ namespace BudgetApp
                 {   
                     // How can I read just the text of the specific detail in the file separately
                     Amount = File.ReadAllText(file),
-                    Expense = File.ReadAllText(file),
                     // How can I read the date that the user inputs?
                     Date = File.GetCreationTime(file),
                     Type = File.ReadAllText(file),
@@ -44,7 +43,7 @@ namespace BudgetApp
 
         private void NewExpenseListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushModalAsync(new ToDoPage
+            Navigation.PushModalAsync(new NewExpensePage
             {
                 BindingContext = (NewExpense)e.SelectedItem
             });
@@ -52,7 +51,7 @@ namespace BudgetApp
 
         private void NewExpense_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ToDoPage
+            Navigation.PushModalAsync(new NewExpensePage
             {
                 BindingContext = new NewExpense()
             });
