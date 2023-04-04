@@ -6,12 +6,12 @@ namespace BudgetApp.Models
 {
     internal class Goal
     {
-        public String Food { get; set; }
-        public String Clothing { get; set; }
-        public String Housing { get; set; }
-        public String Transportation { get; set; }
-        public String Entertainment { get; set; }
-        public String Miscellaneous { get; set; }
+        public int Food { get; set; }
+        public int Clothing { get; set; }
+        public int Housing { get; set; }
+        public int Transportation { get; set; }
+        public int Entertainment { get; set; }
+        public int Miscellaneous { get; set; }
         public DateTime Date { get; set; }
         public String FileName { get; set; }
     }

@@ -6,16 +6,22 @@
 
     <StackLayout>
         <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
-        <ListView x:Name="ToDoListView"
-                  Margin="20"
-                  ItemSelected="ToDoListView_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:ToDo">
-                    <TextCell Text="{Binding Text}"
-                              Detail="{Binding Date}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ListView x:Name="ExpenseView"
+          Margin="20">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:Expense">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                            <Image Source="/Assets/Images/money-in-hand-icon.png" />
+                        <Label Text="{Binding Type}" 
+                           VerticalOptions="CenterAndExpand" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
     </StackLayout>
 
 </ContentPage>

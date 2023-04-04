@@ -54,17 +54,24 @@ namespace BudgetApp
            
             string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
 
-         
-            goal.Food = food;
-            goal.Clothing = clothing;
-            goal.Housing = housing;
-            goal.Transportation = transportation;
-            goal.Entertainment = entertainment;
-            goal.Miscellaneous = miscellaneous;
+            int foodValue = int.Parse(food);
+            int clothingValue = int.Parse(clothing);
+            int housingValue = int.Parse(housing);
+            int transportationValue = int.Parse(transportation);
+            int entertainmentValue = int.Parse(entertainment);
+            int miscellaneousValue = int.Parse(miscellaneous);
+
+            // Assign integer values to goal object properties
+            goal.Food = foodValue;
+            goal.Clothing = clothingValue;
+            goal.Housing = housingValue;
+            goal.Transportation = transportationValue;
+            goal.Entertainment = entertainmentValue;
+            goal.Miscellaneous = miscellaneousValue;
             goal.FileName = FileName;
             goal.Date = date;
 
-        
+
 
             string json = JsonConvert.SerializeObject(goal);
     

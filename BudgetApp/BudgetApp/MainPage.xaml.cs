@@ -19,19 +19,36 @@ namespace BudgetApp
         }
         protected override void OnAppearing()
         {
-            var todos = new List<ToDo>();
-            var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.notes.txt");
+            var expenses = new List<Expense>();
+            /*
+            var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.expense.json");
             foreach (var file in files)
             {
-                var todo = new ToDo()
-                {
-                    Text = File.ReadAllText(file),
-                    Date = File.GetCreationTime(file),
-                    FileName = file
-                };
-                todos.Add(todo);
+                string json = File.ReadAllText(file);
+                var expense = JsonConvert.DeserializeObject<Expense>(json);
+                expenses.Add(expense);
+
+            } */
+            var expense = new Expense()
+            {
+                Id = "shfghsd",
+                Type = "Food",
+                GoalValue = "dhs",
+                Amount = "dff",
+                Date = DateTime.Now,
+                
+            
+            };
+            expenses.Add(expense);
+
+            ExpenseView.ItemsSource = expenses;
+            string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
+            if (File.Exists(FileName))
+            {
+                goal.Text = "Update Your Goals";
             }
-            ToDoListView.ItemsSource = todos.OrderByDescending(t => t.Date);
+            
+
         }
 
         private void ToDoListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -72,5 +89,7 @@ namespace BudgetApp
 
             }
         }
+
+
     }
 }
