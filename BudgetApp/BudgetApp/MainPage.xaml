@@ -11,18 +11,16 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <!-- top banner and coin in hand logo -->
-        <Border Grid.Row="0" Background="LightSteelBlue">
-            <StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
+        <Frame Grid.Row="0" Background="LightSteelBlue">
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="Center" >
                 <Image Width="100" 
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
+                       HorizontalOptions="Center"
                        Source="Assets/Images/coin-in-hand.png" />
-            </StackPanel>
-        </Border>
+            </StackLayout>
+        </Frame>
         <!-- Add New Expense button and list of expenses -->
-        <Border Background="LightSteelBlue">
+        <Frame Background="LightSteelBlue">
             <StackLayout>
                 <Button x:Name="NewExpense" 
                         Text="New Expense" 
@@ -34,14 +32,14 @@
                       Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:NewExpense">
-                            <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c}'
+                            <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c}'}"
                                 Detail="{Binding Date}" />
                                 <!-- want to add the associated category icon here -->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-        </Border>
+        </Frame>
 
     </Grid>
 
