@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BudgetApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
@@ -24,7 +23,7 @@ namespace BudgetApp
             var newExpense = (NewExpense)BindingContext;
             if (newExpense != null && !string.IsNullOrEmpty(newExpense.FileName))
             {
-                NewExpenseText.Text = File.ReadAllText(newExpense.FileName);
+                AmountText.Text = File.ReadAllText(newExpense.FileName);
             }
         }
 
@@ -32,15 +31,15 @@ namespace BudgetApp
         {
             // how can I change this to reflect the different categories of a new expense?
             var newExpense = (NewExpense)BindingContext;
-            newExpense.Text = NewExpenseText.Text;
+            newExpense.Amount = AmountText.Text;
             if (string.IsNullOrEmpty(newExpense.FileName))
             {
                 newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
             }
-            newExpense.Text = NewExpenseText.Text;
+            newExpense.Amount = AmountText.Text;
             newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
 
-            File.WriteAllText(newExpense.FileName, newExpense.Text);
+            File.WriteAllText(newExpense.FileName, newExpense.Amount);
             Navigation.PopModalAsync();
         }
 
@@ -51,8 +50,33 @@ namespace BudgetApp
             {
                 File.Delete(newExpense.FileName);
             }
-            NewExpenseText.Text = String.Empty;
+            AmountText.Text = String.Empty;
             Navigation.PopModalAsync();
+        }
+
+        private void housingButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void transportationButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void foodButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clothingButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void entertainmentButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
