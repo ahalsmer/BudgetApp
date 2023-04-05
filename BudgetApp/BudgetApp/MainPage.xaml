@@ -7,7 +7,8 @@
     <StackLayout>
         <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
         <ListView x:Name="ExpenseView"
-          Margin="20">
+          Margin="20"
+          ItemSelected="ExpenseView_ItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Expense">
                 <ViewCell>
@@ -17,7 +18,11 @@
                            VerticalOptions="CenterAndExpand" 
                            FontSize="16" 
                            TextColor="Black" />
-                    </StackLayout>
+                            <Label Text="{Binding Amount}" 
+                           VerticalOptions="CenterAndExpand" 
+                           FontSize="16" 
+                           TextColor="Black" />
+                        </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

@@ -9,10 +9,12 @@ namespace BudgetApp.Models
       public string Id { get; set; }
       public string Type { get; set; }
 
-      public string GoalValue { get; set; }
+      public int GoalValue { get; set; }
 
-       public string Amount { get; set;}
+       public int Amount { get; set;}
 
        public DateTime Date { get; set; }
+
+        public string FileName { get; set; }
     }
 }

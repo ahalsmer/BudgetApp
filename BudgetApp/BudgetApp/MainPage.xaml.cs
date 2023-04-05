@@ -33,13 +33,23 @@ namespace BudgetApp
             {
                 Id = "shfghsd",
                 Type = "Food",
-                GoalValue = "dhs",
-                Amount = "dff",
+                GoalValue = 100,
+                Amount = 200,
                 Date = DateTime.Now,
                 
             
             };
+            var file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Food_expense.json");
+            if (File.Exists(file))
+            {
+                string json = File.ReadAllText(file);
+                var expense1 = JsonConvert.DeserializeObject<Expense>(json);
+                expense.Amount = expense1.Amount;
+
+            }
             expenses.Add(expense);
+
+
 
             ExpenseView.ItemsSource = expenses;
             string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
@@ -51,11 +61,11 @@ namespace BudgetApp
 
         }
 
-        private void ToDoListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ExpenseView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushModalAsync(new ToDoPage
+            Navigation.PushModalAsync(new ExpensePage
             {
-                BindingContext = (ToDo)e.SelectedItem
+                BindingContext = (Expense)e.SelectedItem
             });
         }
 
@@ -90,6 +100,6 @@ namespace BudgetApp
             }
         }
 
-
+        
     }
 }
