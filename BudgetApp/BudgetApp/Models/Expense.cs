@@ -16,5 +16,15 @@ namespace BudgetApp.Models
        public DateTime Date { get; set; }
 
         public string FileName { get; set; }
+
+        public double AmountProgress
+        {
+            get { return Amount / GoalValue*10; }
+        }
+
+        public double GoalProgress
+        {
+            get { return 1.0; }
+        }
     }
 }

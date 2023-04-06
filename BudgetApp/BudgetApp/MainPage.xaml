@@ -12,18 +12,17 @@
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Expense">
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
-                            <Image Source="/Assets/Images/money-in-hand-icon.png" />
-                        <Label Text="{Binding Type}" 
-                           VerticalOptions="CenterAndExpand" 
-                           FontSize="16" 
-                           TextColor="Black" />
-                            <Label Text="{Binding Amount}" 
-                           VerticalOptions="CenterAndExpand" 
-                           FontSize="16" 
-                           TextColor="Black" />
-                        </StackLayout>
-                </ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="/Assets/Images/money-in-hand-icon.png" />
+                            <Label Grid.Row="0" Text="{Binding Type}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                            <ProgressBar Grid.Row="1" Progress="{Binding AmountProgress}" ProgressColor="Green" />
+                            <ProgressBar Grid.Row="1" Progress="{Binding GoalProgress}" ProgressColor="Red" />
+                        </Grid>
+                    </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
