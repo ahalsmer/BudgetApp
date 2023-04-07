@@ -14,7 +14,7 @@
         <Frame Grid.Row="0" Background="LightSteelBlue">
             <StackLayout Orientation="Horizontal" 
                          HorizontalOptions="Center" >
-                <Image Width="100" 
+                <Image WidthRequest="100" 
                        HorizontalOptions="Center"
                        Source="Assets/Images/coin-in-hand.png" />
             </StackLayout>
@@ -34,7 +34,7 @@
                         <DataTemplate x:DataType="model:NewExpense">
                             <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c}'}"
                                 Detail="{Binding Date}" />
-                                <!-- want to add the associated category icon here -->
+                            <!-- want to add the associated category icon here -->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

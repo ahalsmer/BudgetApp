@@ -69,7 +69,7 @@ namespace BudgetApp
 
         }
 
-        private void clothingButton_Clicked(object sender, EventArgs e)
+        private void shoppingButton_Clicked(object sender, EventArgs e)
         {
 
         }

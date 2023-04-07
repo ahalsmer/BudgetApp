@@ -10,37 +10,62 @@
             <Editor x:Name="DateText"
                     Placeholder="Date of Purchase (00/00/0000)"
                     HeightRequest="100" />
-            <ImageButton x:Name="housingButton"
-                         Margin="10,0,0,0"
-                         Background="LightSteelBlue"
-                         Clicked="housingButton_Clicked" 
-                         Source="/Assets/Images/home-icon.png"
-                         Opacity="0.5" />
-            <ImageButton x:Name="transportationButton"
-                         Margin="10,0,0,0"
-                         Background="LightSteelBlue"
-                         Clicked="transportationButton_Clicked"
-                         Source="/Assets/Images/transportation-icon.png"
-                         Opacity="0.5"/>
-            <ImageButton x:Name="foodButton"
-                         Margin="10,0,0,0"
-                         Background="LightSteelBlue"
-                         Clicked="foodButton_Clicked"
-                         Source="/Assets/Images/food-icon.png"
-                         Opacity="0.5" />
-            <ImageButton x:Name="clothingButton"
-                         Margin="10,0,0,0"
-                         Background="LightSteelBlue"
-                         Clicked="clothingButton_Clicked"
-                         Source="/Assets/Images/shopping-icon.png"
-                         Opacity="0.5" />
+            <Button x:Name="housingButton"
+                    Text="Housing Expense"
+                    ContentLayout="Left,5"
+                    Background="LightSteelBlue"
+                    Clicked="housingButton_Clicked" 
+                    ImageSource="/Assets/Images/home-icon.png"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+                
+            </Button>
+            <Button x:Name="transportationButton"
+                    Text="Transportation Expense"
+                    ContentLayout="Left,5"
+                    Background="LightSteelBlue"
+                    Clicked="transportationButton_Clicked"
+                    ImageSource="/Assets/Images/transportation-icon.png"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+                
+            </Button>
+            <Button x:Name="foodButton"
+                    Text="Food Expense"
+                    ContentLayout="Left,5"
+                    Background="LightSteelBlue"
+                    Clicked="foodButton_Clicked"
+                    ImageSource="/Assets/Images/food-icon.png"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+                
+            </Button>
+            <Button x:Name="shoppingButton"
+                    Text="Shopping Expense"
+                    ContentLayout="Left,5"
+                    Background="LightSteelBlue"
+                    Clicked="shoppingButton_Clicked"
+                    ImageSource="/Assets/Images/shopping-icon.png"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+                
+            </Button>
 
-            <ImageButton x:Name="entertainmentButton"
-                         Margin="10,0,0,0"
-                         Background="LightSteelBlue"
-                         Clicked="entertainmentButton_Clicked"
-                         Source="/Assets/Images/entertainment-icon.png"
-                         Opacity="0.5" />
+            <Button x:Name="entertainmentButton"
+                    Text="Entertainment Expense"
+                    ContentLayout="Left,5"
+                    Background="LightSteelBlue"
+                    Clicked="entertainmentButton_Clicked"
+                    ImageSource="/Assets/Images/entertainment-icon.png"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+                
+            </Button>
 
             <Grid>
                 <Grid.ColumnDefinitions>
