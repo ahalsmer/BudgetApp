@@ -25,13 +25,14 @@ namespace BudgetApp
         private void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             var expense = (Expense)BindingContext;
-            expense.Type = "Food";
+            //expense.Type = "Food";
             if (string.IsNullOrEmpty(expense.Type))
             {
                 expense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{expense.Type}_expense.json");
             }
-            expense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{expense.Type}_expense.json");
+            //expense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{expense.Type}_expense.json");
             expense.Amount = int.Parse(Amount.Text);
+            expense.Date = Date.Date;
 
             string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
 

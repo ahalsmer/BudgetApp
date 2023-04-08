@@ -5,8 +5,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Editor x:Name="Amount"
-                    Placeholder="Enter your to-do task"
+                    Placeholder="Enter the amount spent"
                     HeightRequest="100" />
+            <DatePicker x:Name="Date" />
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />

@@ -13,14 +13,21 @@
             <DataTemplate x:DataType="model:Expense">
                 <ViewCell>
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Image Grid.Row="0" Source="/Assets/Images/money-in-hand-icon.png" />
-                            <Label Grid.Row="0" Text="{Binding Type}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
-                            <ProgressBar Grid.Row="1" Progress="{Binding AmountProgress}" ProgressColor="Green" />
-                            <ProgressBar Grid.Row="1" Progress="{Binding GoalProgress}" ProgressColor="Red" />
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton x:Name="foodButton"
+                         Background="LightSteelBlue"
+                         Source="{Binding ImageUrl}"
+                         Opacity="0.5"
+                                         HeightRequest="50" WidthRequest="50"
+             HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Type, StringFormat='{}Category: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                            <Label Grid.Column="1" Text="{Binding Amount, StringFormat='{}Spent: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                            <Label Grid.Column="2" Text="{Binding GoalValue, StringFormat='{}Budget: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                            
                         </Grid>
                     </ViewCell>
             </DataTemplate>

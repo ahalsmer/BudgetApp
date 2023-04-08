@@ -17,14 +17,8 @@ namespace BudgetApp.Models
 
         public string FileName { get; set; }
 
-        public double AmountProgress
-        {
-            get { return Amount / GoalValue*10; }
-        }
+        public string ImageUrl { get; set; }
 
-        public double GoalProgress
-        {
-            get { return 1.0; }
-        }
+        
     }
 }
