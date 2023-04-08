@@ -3,69 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp.NewExpensePage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout HorizontalOptions="Center">
             <Editor x:Name="AmountText"
                     Placeholder="Amount (0.00)"
                     HeightRequest="100" />
             <Editor x:Name="DateText"
                     Placeholder="Date of Purchase (00/00/0000)"
                     HeightRequest="100" />
-            <Button x:Name="housingButton"
-                    Text="Housing Expense"
-                    ContentLayout="Left,5"
-                    Background="LightSteelBlue"
-                    Clicked="housingButton_Clicked" 
-                    ImageSource="/Assets/Images/home-icon.png"
-                    HorizontalOptions="StartAndExpand"
-                    WidthRequest="300"
-                    Opacity="0.5">
+            <RadioButton x:Name="housing"
+                         Content="Housing Expense"
+                         Background="LightSteelBlue"
+                         CheckedChanged="category_CheckedChanged" 
+                         IsChecked="True"
+                         HorizontalOptions="CenterAndExpand"
+                         WidthRequest="300"
+                         Opacity="0.5">
                 
-            </Button>
-            <Button x:Name="transportationButton"
-                    Text="Transportation Expense"
-                    ContentLayout="Left,5"
-                    Background="LightSteelBlue"
-                    Clicked="transportationButton_Clicked"
-                    ImageSource="/Assets/Images/transportation-icon.png"
-                    HorizontalOptions="StartAndExpand"
-                    WidthRequest="300"
-                    Opacity="0.5">
+            </RadioButton>
+            <RadioButton x:Name="transportation"
+                         Content="Transportation Expense"
+                         Background="LightSteelBlue"
+                         CheckedChanged="category_CheckedChanged"
+                         HorizontalOptions="CenterAndExpand"
+                         WidthRequest="300"
+                         Opacity="0.5">
                 
-            </Button>
-            <Button x:Name="foodButton"
-                    Text="Food Expense"
-                    ContentLayout="Left,5"
-                    Background="LightSteelBlue"
-                    Clicked="foodButton_Clicked"
-                    ImageSource="/Assets/Images/food-icon.png"
-                    HorizontalOptions="StartAndExpand"
-                    WidthRequest="300"
-                    Opacity="0.5">
+            </RadioButton>
+            <RadioButton x:Name="food"
+                         Content="Food Expense"
+                         Background="LightSteelBlue"
+                         CheckedChanged="category_CheckedChanged"
+                         HorizontalOptions="CenterAndExpand"
+                         WidthRequest="300"
+                          Opacity="0.5">
                 
-            </Button>
-            <Button x:Name="shoppingButton"
-                    Text="Shopping Expense"
-                    ContentLayout="Left,5"
-                    Background="LightSteelBlue"
-                    Clicked="shoppingButton_Clicked"
-                    ImageSource="/Assets/Images/shopping-icon.png"
-                    HorizontalOptions="StartAndExpand"
-                    WidthRequest="300"
-                    Opacity="0.5">
+            </RadioButton>
+            <RadioButton x:Name="shopping"
+                         Content="Shopping Expense"
+                         Background="LightSteelBlue"
+                         CheckedChanged="category_CheckedChanged"
+                         HorizontalOptions="CenterAndExpand"
+                         WidthRequest="300"
+                         Opacity="0.5">
                 
-            </Button>
+            </RadioButton>
 
-            <Button x:Name="entertainmentButton"
-                    Text="Entertainment Expense"
-                    ContentLayout="Left,5"
+            <RadioButton x:Name="entertainment"
+                    Content="Entertainment Expense"
                     Background="LightSteelBlue"
-                    Clicked="entertainmentButton_Clicked"
-                    ImageSource="/Assets/Images/entertainment-icon.png"
-                    HorizontalOptions="StartAndExpand"
+                    CheckedChanged="category_CheckedChanged"
+                    HorizontalOptions="CenterAndExpand"
                     WidthRequest="300"
                     Opacity="0.5">
                 
-            </Button>
+            </RadioButton>
 
             <Grid>
                 <Grid.ColumnDefinitions>

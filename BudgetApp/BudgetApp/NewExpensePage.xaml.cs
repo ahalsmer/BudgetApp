@@ -54,28 +54,9 @@ namespace BudgetApp
             Navigation.PopModalAsync();
         }
 
-        private void housingButton_Clicked(object sender, EventArgs e)
+        private void category_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-
-        }
-
-        private void transportationButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void foodButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void shoppingButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void entertainmentButton_Clicked(object sender, EventArgs e)
-        {
+            RadioButton radioButton = sender as RadioButton;
 
         }
     }

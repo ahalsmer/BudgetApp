@@ -9,6 +9,7 @@ namespace BudgetApp.Models
         public string Amount { get; set; }
         public DateTime Date { get; set; }
         public string Type { get; set; }
+        public string Details { get; set; }
         public string FileName { get; set; }
     }
 }
