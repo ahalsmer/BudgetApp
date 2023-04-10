@@ -10,7 +10,7 @@
             <RowDefinition Height="8*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <!-- top banner and coin in hand logo -->
+        <!-- top banner and coin in hand logo | why is this not showing up?? -->
         <Frame Grid.Row="0" Background="LightSteelBlue">
             <StackLayout Orientation="Horizontal" 
                          HorizontalOptions="Center" >
@@ -31,6 +31,7 @@
                       Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:NewExpense">
+                            <!-- How to make Amount save and add new instances? -->
                             <TextCell Text="{Binding Path=Amount, StringFormat='{}{0:c}'}"
                                 Detail="{Binding Details}" />
                             <!-- want to add the associated category icon here -->

@@ -31,7 +31,9 @@ namespace BudgetApp
                     Amount = File.ReadAllText(file),
                     // How can I read the date that the user inputs?
                     Date = File.GetCreationTime(file),
-                    Details = File.GetCreationTime(file) + " " ,// radioButton.Content should also go here
+                    // How do I assign Type again here?
+                    // Type = File.
+                    // Details = File.GetCreationTime(file) + " " + ,// Type should also go here
                     FileName = file
                 };
                 // add each expense to a list of expenses

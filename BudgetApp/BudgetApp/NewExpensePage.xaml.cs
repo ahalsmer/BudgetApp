@@ -32,6 +32,7 @@ namespace BudgetApp
             // how can I change this to reflect the different categories of a new expense?
             var newExpense = (NewExpense)BindingContext;
             newExpense.Amount = AmountText.Text;
+   
             if (string.IsNullOrEmpty(newExpense.FileName))
             {
                 newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
@@ -56,7 +57,11 @@ namespace BudgetApp
 
         private void category_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            var newExpense = (NewExpense)BindingContext;
             RadioButton radioButton = sender as RadioButton;
+            newExpense.Type = (string)radioButton.Content;
+            // How can I save an instance of the radioButton.Content without each new form changing the content for every existing expense?
+            // Does this  assignment of Type carry over to MainPage.xaml.cs?
 
         }
     }
