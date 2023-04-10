@@ -3,11 +3,13 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using MenuItem = BudgetApp.Models.MenuItem;
 
 namespace BudgetApp
 {
@@ -28,188 +30,27 @@ namespace BudgetApp
                 expenses.Add(expense);
 
             }
-            bool foodFlag = false;
-            bool ClothingFlag = false;
-            bool HousingFlag = false;
-            bool TransportationFlag = false;
-            bool EntertainmentFlag = false;
-            bool MiscellaneousFlag = false;
-           
-            foreach (var item in expenses)
-            {
-                if(item.Type == "Food")
-                {
-                    foodFlag = true;
-                }
-                if (item.Type == "Clothing")
-                {
-                    ClothingFlag = true;
-                }
-                if (item.Type == "Housing")
-                {
-                    HousingFlag = true;
-                }
-                if (item.Type == "Transportation")
-                {
-                    TransportationFlag = true;
-                }
-                if (item.Type == "Entertainment")
-                {
-                    EntertainmentFlag = true;
-                }
-                if (item.Type == "Miscellaneous")
-                {
-                    MiscellaneousFlag = true;
-                }
-            }
-            if (!foodFlag) {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Food",
-                    GoalValue = goals.Food,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl= "/Assets/Images/food-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Food_expense.json")
-            };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-            }
-            if (!ClothingFlag)
-            {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Clothing",
-                    GoalValue = goals.Clothing,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl = "/Assets/Images/shopping-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Clothing_expense.json")
-                };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-                expenses.Add(expense);
-            }
-            /*
-            if (!HousingFlag)
-            {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Housing",
-                    GoalValue = goals.Clothing,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl = "/Assets/Images/shopping-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Housing_expense.json")
-                };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-                expenses.Add(expense);
-            }
-           
-            if (!TransportationFlag)
-            {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Transportation",
-                    GoalValue = goals.Clothing,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl = "/Assets/Images/shopping-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Transportation_expense.json")
-                };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-                expenses.Add(expense);
-            }
-            if (!EntertainmentFlag)
-            {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Entertainment",
-                    GoalValue = goals.Clothing,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl = "/Assets/Images/shopping-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Entertainment_expense.json")
-                };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-                expenses.Add(expense);
-            }
-
-            if (!MiscellaneousFlag)
-            {
-                string GoalFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
-
-                string json = File.ReadAllText(GoalFileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
-
-                //if expense.Type == "Food"
-                var expense = new Expense()
-                {
-                    Id = "0",
-                    Type = "Miscellaneous",
-                    GoalValue = goals.Clothing,
-                    Amount = 0,
-                    Date = DateTime.Now,
-                    ImageUrl = "/Assets/Images/shopping-icon.png",
-                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"Miscellaneous_expense.json")
-                };
-                string expenseinfo = JsonConvert.SerializeObject(expense);
-                File.WriteAllText(expense.FileName, expenseinfo);
-                expenses.Add(expense);
-                expenses.Add(expense);
-            }
-            */
-
             ExpenseView.ItemsSource = expenses;
             string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
             if (File.Exists(FileName))
             {
-                goal.Text = "Update Your Goals";
+                string json = File.ReadAllText(FileName);
+                Goal goalObject = JsonConvert.DeserializeObject<Goal>(json);
+                int total = 0;
+                if (goalObject != null)
+                {
+                    total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Clothing + goalObject.Entertainment;
+                }
+                goal.Text = "Total Budget set is "+total;
             }
-            
+
+            var menuItems = new List<MenuItem>();
+            menuItems.Add(new MenuItem { Type = "Hosing" });
+            menuItems.Add(new MenuItem { Type = "Clothing" });
+            menuItems.Add(new MenuItem { Type = "Transportation" });
+            menuItems.Add(new MenuItem { Type = "Entertainment" });
+            menuItems.Add(new MenuItem { Type = "Miscellaneous" });
+
 
         }
 
@@ -229,14 +70,21 @@ namespace BudgetApp
             if (File.Exists(FileName))
             {
                 string json = File.ReadAllText(FileName);
-                Goal goals = JsonConvert.DeserializeObject<Goal>(json);
+                Goal goalObject = JsonConvert.DeserializeObject<Goal>(json);
 
                 Navigation.PushModalAsync(new GoalPage
                 {
-                    BindingContext = goals
+                    BindingContext = goalObject
                 });
-
-                goal.Text = "Update Your Goals";
+                int total = 0;
+                json = File.ReadAllText(FileName);
+                goalObject = JsonConvert.DeserializeObject<Goal>(json);
+                Debug.WriteLine(File.ReadAllText(FileName));
+                if (goalObject != null)
+                {
+                    total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Clothing + goalObject.Entertainment;
+                }
+                goal.Text = "Total Budget set is " + total;
 
             }
             else
@@ -252,6 +100,28 @@ namespace BudgetApp
             }
         }
 
-        
+        private void BackButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HamburgerButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void expense_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new ExpensePage
+            {
+                BindingContext = new Expense()
+            });
+
+        }
     }
 }

@@ -6,6 +6,8 @@
 
     <StackLayout>
         <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
+        <Button x:Name="expense" Text="Add new Expense" Clicked="expense_Clicked" />
+        
         <ListView x:Name="ExpenseView"
           Margin="20"
           ItemSelected="ExpenseView_ItemSelected">
@@ -18,12 +20,6 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ImageButton x:Name="foodButton"
-                         Background="LightSteelBlue"
-                         Source="{Binding ImageUrl}"
-                         Opacity="0.5"
-                                         HeightRequest="50" WidthRequest="50"
-             HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Label Grid.Column="0" Text="{Binding Type, StringFormat='{}Category: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
                             <Label Grid.Column="1" Text="{Binding Amount, StringFormat='{}Spent: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
                             <Label Grid.Column="2" Text="{Binding GoalValue, StringFormat='{}Budget: {0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
