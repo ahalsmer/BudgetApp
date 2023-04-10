@@ -24,14 +24,14 @@ namespace BudgetApp
             {
                 var content = File.ReadAllText(newExpense.FileName);
                 var details = content.Split('-');
-                AmountText.Text = details[1];
+                AmountText.Text = details[0];
+                newExpense.Type = details[1];
             }
         }
 
         private void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             var newExpense = (NewExpense)BindingContext;
-            newExpense.Amount = AmountText.Text;
    
             if (string.IsNullOrEmpty(newExpense.FileName))
             {
@@ -39,7 +39,7 @@ namespace BudgetApp
             }
             newExpense.Amount = AmountText.Text;
             newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
-            var content = $"{newExpense.Amount}/n{newExpense.Date} - {newExpense.Type}";
+            var content = $"{newExpense.Amount}-{newExpense.Type}";
             File.WriteAllText(newExpense.FileName, content);
             Navigation.PopModalAsync();
         }
@@ -58,8 +58,11 @@ namespace BudgetApp
         private void category_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             var newExpense = (NewExpense)BindingContext;
-            RadioButton radioButton = sender as RadioButton;
-            newExpense.Type = (string)radioButton.Content;
+            RadioButton radioButton = (RadioButton)sender;
+            if (radioButton.Content != null)
+            {
+                newExpense.Type = (string)radioButton.Content;
+            }
      
 
         }

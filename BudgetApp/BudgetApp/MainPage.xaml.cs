@@ -19,6 +19,7 @@ namespace BudgetApp
         protected override void OnAppearing()
         {
             var expenses = new List<NewExpense>();
+    
             // returns an enumerable collection of file names in the specified format
             var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.notes.txt");
             foreach (var file in files)
@@ -29,10 +30,10 @@ namespace BudgetApp
                 // for each file in the in the aforementioned list, read the amount, expense, date, and type
                 var expense = new NewExpense()
                 {
-                    Amount = details[1],
+                    Amount = details[0],
                     Date = File.GetCreationTime(file),
                     Type = details[0],
-                    Details = File.GetCreationTime(file) + " - " + details[0],// Type should also go here
+                    Details = $"{File.GetCreationTime(file)}  - {details.Length}",
                     FileName = file
                 };
                 // add each expense to a list of expenses
