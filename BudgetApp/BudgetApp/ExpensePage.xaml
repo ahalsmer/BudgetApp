@@ -4,14 +4,14 @@
              x:Class="BudgetApp.ExpensePage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="CategoryPicker"
+        <Picker x:Name="CategoryPicker"
         Title="{Binding Type, Mode=TwoWay, FallbackValue='Choose a category'}"
         SelectedItem="{Binding Type}">
-                </Picker>
-                <Editor x:Name="Amount"
-                    Text="{Binding Amount, Mode=TwoWay, FallbackValue=0}"
-                    Placeholder="Enter the amount spent"
-                    HeightRequest="100" />
+         </Picker>
+          <Editor x:Name="Amount"
+          Text="{Binding Amount, Mode=TwoWay, FallbackValue=0}"
+           Placeholder="Enter the amount spent"
+           HeightRequest="100" />
             <DatePicker x:Name="Date" />
                 <Grid>
                     <Grid.ColumnDefinitions>

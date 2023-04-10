@@ -39,6 +39,7 @@ namespace BudgetApp
         private void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             var expense = (Expense)BindingContext;
+            Debug.WriteLine("My Expense"+expense);
             //expense.Type = "Food";
             if (string.IsNullOrEmpty(expense.FileName))
             {
