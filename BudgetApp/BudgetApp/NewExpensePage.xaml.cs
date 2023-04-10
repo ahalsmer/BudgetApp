@@ -58,12 +58,14 @@ namespace BudgetApp
         private void category_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             var newExpense = (NewExpense)BindingContext;
+            if(newExpense != null) {
             RadioButton radioButton = (RadioButton)sender;
             if (radioButton.Content != null)
             {
                 newExpense.Type = (string)radioButton.Content;
             }
-     
+            }
+
 
         }
     }
