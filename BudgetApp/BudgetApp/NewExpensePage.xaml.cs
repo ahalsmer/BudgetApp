@@ -19,17 +19,17 @@ namespace BudgetApp
         }
         protected override void OnAppearing()
         {
-            // what exactly is happening here?
             var newExpense = (NewExpense)BindingContext;
             if (newExpense != null && !string.IsNullOrEmpty(newExpense.FileName))
             {
-                AmountText.Text = File.ReadAllText(newExpense.FileName);
+                var content = File.ReadAllText(newExpense.FileName);
+                var details = content.Split('-');
+                AmountText.Text = details[1];
             }
         }
 
         private void OnSaveButton_Clicked(object sender, EventArgs e)
         {
-            // how can I change this to reflect the different categories of a new expense?
             var newExpense = (NewExpense)BindingContext;
             newExpense.Amount = AmountText.Text;
    
@@ -39,8 +39,8 @@ namespace BudgetApp
             }
             newExpense.Amount = AmountText.Text;
             newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
-
-            File.WriteAllText(newExpense.FileName, newExpense.Amount);
+            var content = $"{newExpense.Amount}/n{newExpense.Date} - {newExpense.Type}";
+            File.WriteAllText(newExpense.FileName, content);
             Navigation.PopModalAsync();
         }
 
@@ -60,8 +60,7 @@ namespace BudgetApp
             var newExpense = (NewExpense)BindingContext;
             RadioButton radioButton = sender as RadioButton;
             newExpense.Type = (string)radioButton.Content;
-            // How can I save an instance of the radioButton.Content without each new form changing the content for every existing expense?
-            // Does this  assignment of Type carry over to MainPage.xaml.cs?
+     
 
         }
     }

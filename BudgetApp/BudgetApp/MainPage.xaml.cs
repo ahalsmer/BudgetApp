@@ -18,22 +18,21 @@ namespace BudgetApp
         }
         protected override void OnAppearing()
         {
-            // declaring expenses which is the list of new files getting sorted through the NewExpense class
             var expenses = new List<NewExpense>();
             // returns an enumerable collection of file names in the specified format
             var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.notes.txt");
             foreach (var file in files)
             {
+                var content = File.ReadAllText(file);
+                var details = content.Split('-');
+
                 // for each file in the in the aforementioned list, read the amount, expense, date, and type
                 var expense = new NewExpense()
-                {   
-                    // How can I read just the text of the specific detail in the file separately
-                    Amount = File.ReadAllText(file),
-                    // How can I read the date that the user inputs?
+                {
+                    Amount = details[1],
                     Date = File.GetCreationTime(file),
-                    // How do I assign Type again here?
-                    // Type = File.
-                    // Details = File.GetCreationTime(file) + " " + ,// Type should also go here
+                    Type = details[0],
+                    Details = File.GetCreationTime(file) + " - " + details[0],// Type should also go here
                     FileName = file
                 };
                 // add each expense to a list of expenses
