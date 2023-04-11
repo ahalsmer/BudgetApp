@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
+using System.Diagnostics;
 
 namespace BudgetApp
 {
@@ -35,11 +36,12 @@ namespace BudgetApp
    
             if (string.IsNullOrEmpty(newExpense.FileName))
             {
-                newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
+                newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.expense.txt");
             }
             newExpense.Amount = AmountText.Text;
-            newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.notes.txt");
+            //newExpense.FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.expense.txt");
             var content = $"{newExpense.Amount}-{newExpense.Type}";
+            Debug.WriteLine(content);
             File.WriteAllText(newExpense.FileName, content);
             Navigation.PopModalAsync();
         }

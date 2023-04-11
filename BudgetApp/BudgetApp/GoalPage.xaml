@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetApp.GoalPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="Goals">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Food:" />
+                <Editor Grid.Row="0" Grid.Column="1" x:Name="Food" Text="{Binding Food, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Shopping:"/>
+                <Editor Grid.Row="1" Grid.Column="1" x:Name="Shopping" Text="{Binding Shopping, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Housing:"/>
+                <Editor Grid.Row="2" Grid.Column="1" x:Name="Housing" Text="{Binding Housing, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="Transportation:"/>
+                <Editor Grid.Row="3" Grid.Column="1" x:Name="Transportation" Text="{Binding Transportation, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="Entertainment:"/>
+                <Editor Grid.Row="4" Grid.Column="1" x:Name="Entertainment" Text="{Binding Entertainment, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="5" Grid.Column="0" Text="Miscellaneous:"/>
+                <Editor Grid.Row="5" Grid.Column="1" x:Name="Miscellaneous" Text="{Binding Miscellaneous, Mode=TwoWay, FallbackValue=''}"/>
+                <Label Grid.Row="6" Grid.Column="0" Text="Date:"/>
+                <DatePicker Grid.Row="6" Grid.Column="1" x:Name="Date" />
+                <Button Grid.Row="7" Grid.ColumnSpan="2" Text="Save" Clicked="Button_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

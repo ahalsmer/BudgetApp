@@ -9,7 +9,7 @@
                     HeightRequest="100" />
 
             <RadioButton x:Name="housing"
-                         Content="Housing Expense"
+                         Content="Housing"
                          Background="LightSteelBlue"
                          CheckedChanged="category_CheckedChanged" 
                          IsChecked="True"
@@ -19,7 +19,7 @@
                 
             </RadioButton>
             <RadioButton x:Name="transportation"
-                         Content="Transportation Expense"
+                         Content="Transportation"
                          Background="LightSteelBlue"
                          CheckedChanged="category_CheckedChanged"
                          HorizontalOptions="CenterAndExpand"
@@ -28,7 +28,7 @@
                 
             </RadioButton>
             <RadioButton x:Name="food"
-                         Content="Food Expense"
+                         Content="Food"
                          Background="LightSteelBlue"
                          CheckedChanged="category_CheckedChanged"
                          HorizontalOptions="CenterAndExpand"
@@ -37,7 +37,7 @@
                 
             </RadioButton>
             <RadioButton x:Name="shopping"
-                         Content="Shopping Expense"
+                         Content="Shopping"
                          Background="LightSteelBlue"
                          CheckedChanged="category_CheckedChanged"
                          HorizontalOptions="CenterAndExpand"
@@ -47,13 +47,23 @@
             </RadioButton>
 
             <RadioButton x:Name="entertainment"
-                    Content="Entertainment Expense"
+                    Content="Entertainment"
                     Background="LightSteelBlue"
                     CheckedChanged="category_CheckedChanged"
                     HorizontalOptions="CenterAndExpand"
                     WidthRequest="300"
                     Opacity="0.5">
                 
+            </RadioButton>
+
+            <RadioButton x:Name="miscellaneous"
+                    Content="Miscellaneous"
+                    Background="LightSteelBlue"
+                    CheckedChanged="category_CheckedChanged"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="300"
+                    Opacity="0.5">
+
             </RadioButton>
 
             <Grid>

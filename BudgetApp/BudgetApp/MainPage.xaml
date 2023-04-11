@@ -3,44 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model ="clr-namespace:BudgetApp.Models"
              x:Class="BudgetApp.MainPage">
-    <Grid>
-        <!-- three rows -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-        <!-- top banner and coin in hand logo | why is this not showing up?? -->
-        <Frame Grid.Row="0" Background="LightSteelBlue">
-            <StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="Center" >
-                <Image HorizontalOptions="Center"
-                       Source="Assets/Images/coin-in-hand.png" />
-            </StackLayout>
-        </Frame>
-        <!-- Add New Expense button and list of expenses -->
-        <Frame Background="LightSteelBlue">
-            <StackLayout>
-                <Button x:Name="NewExpense" 
-                        Text="New Expense" 
-                        Clicked="NewExpense_Clicked" 
-                        Grid.Row="2" />
-                <ListView x:Name="NewExpenseListView"
-                      Margin="20"
-                      ItemSelected="NewExpenseListView_ItemSelected"
-                      Grid.Row="1">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model:NewExpense">
-                            <TextCell Text="{Binding Amount, StringFormat='{}{0:c}'}"
-                                Detail="{Binding Details}" />
-                            <!-- want to add the associated category icon here -->
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </Frame>
 
-    </Grid>
+    <StackLayout>
+        <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
+        <Button x:Name="expense" Text="Add new Expense" Clicked="Expense_Clicked" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <ListView x:Name="GoalListView"
+                      Grid.Column="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Balance">
+                        <TextCell Text="{Binding value, StringFormat='{}{0:c}'}"
+                                Detail="{Binding Type, StringFormat='Remaing balance on {0} = '}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="ExpenseView"
+          Margin="20"
+          ItemSelected="ExpenseListView_ItemSelected"
+          Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NewExpense">
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Type, StringFormat='{0} = '}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                                <Label Grid.Column="1" Text="{Binding Amount, StringFormat='{0}'}" VerticalOptions="CenterAndExpand" FontSize="16" TextColor="Black" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
 
 </ContentPage>
