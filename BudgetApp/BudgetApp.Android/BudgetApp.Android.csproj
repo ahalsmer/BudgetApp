@@ -89,9 +89,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BudgetApp\BudgetApp.csproj">
       <Project>{003330FB-A956-4DF0-9A67-C227B2D3E998}</Project>
@@ -99,25 +97,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\coin-in-hand.png" />
+    <AndroidAsset Include="Resources\drawable\coin-in-hand.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\entertainment-icon.png" />
+    <AndroidAsset Include="Resources\drawable\entertainment-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\food-icon.png" />
+    <AndroidAsset Include="Resources\drawable\food-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\home-icon.png" />
+    <AndroidAsset Include="Resources\drawable\home-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\money-in-hand-icon-icon.png" />
+    <AndroidAsset Include="Resources\drawable\money-in-hand-icon-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\shopping-icon.png" />
+    <AndroidAsset Include="Resources\drawable\shopping-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Images\transportation-icon.png" />
+    <AndroidAsset Include="Resources\drawable\transportation-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\budget-quote.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
