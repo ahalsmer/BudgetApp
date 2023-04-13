@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model ="clr-namespace:BudgetApp.Models"
+             xmlns:model ="clr-namespace:BudgetApp.Models" xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              Title="HomePage"
              x:Class="BudgetApp.HomePage">
 
     <StackLayout>
+       
         <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
         <Button x:Name="expense" Text="Add new Expense" Clicked="Expense_Clicked" />
         <Grid>

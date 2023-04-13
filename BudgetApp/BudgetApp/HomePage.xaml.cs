@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -14,10 +15,12 @@ namespace BudgetApp
 {
     public partial class HomePage : ContentPage
     {
+        
         public HomePage()
         {
             InitializeComponent();
-        }
+           
+    }
         protected override void OnAppearing()
         {
             var expenses = new List<NewExpense>();
@@ -43,6 +46,7 @@ namespace BudgetApp
             }
             // place expense items in descending order by date
             ExpenseView.ItemsSource = expenses.OrderByDescending(t => t.Date);
+
 
             string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
             //File.Delete( FileName );
