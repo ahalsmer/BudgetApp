@@ -12,7 +12,6 @@
                          Content="Housing"
                          Background="LightSteelBlue"
                          CheckedChanged="category_CheckedChanged" 
-                         IsChecked="True"
                          HorizontalOptions="CenterAndExpand"
                          WidthRequest="300"
                          Opacity="0.5">

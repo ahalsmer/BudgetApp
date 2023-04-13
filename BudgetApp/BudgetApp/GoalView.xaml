@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model ="clr-namespace:BudgetApp.Models"
+             Title="Goals"
+             x:Class="BudgetApp.GoalView">
+
+    <StackLayout>
+        <Frame Background="LightSteelBlue">
+        <Button x:Name="goal" Text="Set Your Goal" Clicked="Add_Goals" />
+        </Frame>
+        <Grid>
+            <ListView x:Name="GoalListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Balance">
+                        <TextCell Detail="{Binding Type, StringFormat='Remaing balance on {0}'}"
+                            Text="{Binding value, StringFormat='{}{0:c}'}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

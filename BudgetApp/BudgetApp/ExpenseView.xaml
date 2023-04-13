@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model ="clr-namespace:BudgetApp.Models"
+             Title="Expenses"
+             x:Class="BudgetApp.ExpenseView">
+    <StackLayout>
+        <Frame Background="LightSteelBlue">
+            <Button x:Name="NewExpense" 
+                    Text="New Expense" 
+                     Clicked="NewExpense_Clicked"  />
+        </Frame>
+        <Grid>
+            <ListView x:Name="NewExpenseListView"
+                      Margin="20"
+                      ItemSelected="NewExpenseListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NewExpense">
+                        <TextCell Text="{Binding Amount, StringFormat='{}{0:c}'}"
+                                Detail="{Binding Details}" />
+                        <!-- want to add the associated category icon here -->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </StackLayout>
+
+
+</ContentPage>
