@@ -4,7 +4,7 @@
              x:Class="BudgetApp.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="budget-quote.jpg"/>
+            <Label>Welcome to your personal budget!</Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

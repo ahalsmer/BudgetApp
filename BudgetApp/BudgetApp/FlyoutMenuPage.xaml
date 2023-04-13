@@ -8,9 +8,9 @@
         <ListView x:Name="listview" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{Type local:FlyoutItemPage}">
-                    <local:FlyoutItemPage Title="Home" IconSource="home-icon.png" TargetPage="x:Type local:HomePage"/>
-                    <local:FlyoutItemPage Title="Your Golas" IconSource="home-icon.png" TargetPage="x:Type local:ProgressPage"/>
-                    <local:FlyoutItemPage Title="Your Expenses" IconSource="home-icon.png" TargetPage="x:Type local:YourExpensesPage"/>
+                    <!--<local:FlyoutItemPage Title="Home"  TargetPage="{x:Type local:HomePage}"/>-->
+                    <local:FlyoutItemPage Title="Your Goals" TargetPage="{x:Type local:ProgressPage}"/>
+                    <local:FlyoutItemPage Title="Your Expenses" TargetPage="{x:Type local:YourExpensesPage}"/>
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
