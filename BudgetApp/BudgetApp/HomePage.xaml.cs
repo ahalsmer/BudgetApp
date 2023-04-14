@@ -1,5 +1,6 @@
 ﻿using BudgetApp.Models;
 using Newtonsoft.Json;
+using Syncfusion.SfChart.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,12 +16,15 @@ namespace BudgetApp
 {
     public partial class HomePage : ContentPage
     {
-        
+        ObservableCollection<NewExpense> expenseCollection;
+
+
         public HomePage()
         {
             InitializeComponent();
-           
-    }
+            BindingContext = this; 
+
+        }
         protected override void OnAppearing()
         {
             var expenses = new List<NewExpense>();
@@ -45,7 +49,11 @@ namespace BudgetApp
                 expenses.Add(expense);
             }
             // place expense items in descending order by date
-            ExpenseView.ItemsSource = expenses.OrderByDescending(t => t.Date);
+         
+            expenseCollection = new ObservableCollection<NewExpense>(expenses);
+            //Debug.WriteLine("Checking   ===" + expenseCollection[0].Amount);
+            chart.ItemsSource = expenseCollection;
+           
 
 
             string FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"goals.json");
@@ -130,7 +138,7 @@ namespace BudgetApp
                 balanceList.Add(EntertainmentBalanceInfo);
                 balanceList.Add(MiscellaneousBalanceInfo);
 
-                GoalListView.ItemsSource = balanceList;
+            
                 int total = 0;
                 json = File.ReadAllText(FileName);
                 Goal goalObject = JsonConvert.DeserializeObject<Goal>(json);
@@ -139,7 +147,7 @@ namespace BudgetApp
                 {
                     total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Shopping + goalObject.Entertainment;
                 }
-                goal.Text = "Total Budget set is " + total;
+                
             }
         }
 
@@ -180,7 +188,7 @@ namespace BudgetApp
                 {
                     total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Shopping + goalObject.Entertainment;
                 }
-                goal.Text = "Total Budget set is " + total;
+               
 
             }
             else
@@ -199,11 +207,13 @@ namespace BudgetApp
                 {
                     total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Shopping + goalObject.Entertainment;
                 }
-                goal.Text = "Total Budget set is " + total;
+              
 
 
             }
         }
+
+    
 
 
     }

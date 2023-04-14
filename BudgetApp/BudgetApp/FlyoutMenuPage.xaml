@@ -9,7 +9,7 @@
         <ListView x:Name="listview" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:FlyoutItemPage}">
-                    <!-- <local:FlyoutItemPage Title="Home"  TargetPage = "{x:Type local:HomePage}"/> -->
+                    <local:FlyoutItemPage Title="Home"  TargetPage = "{x:Type local:HomePage}"/>
                     <local:FlyoutItemPage Title="Goals"  TargetPage = "{x:Type local:GoalView}"/>
                     <local:FlyoutItemPage Title="Expenses"  TargetPage = "{x:Type local:ExpenseView}"/>
                 </x:Array>
