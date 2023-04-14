@@ -171,15 +171,18 @@ namespace BudgetApp
                     BindingContext = new Goal()
                 });
 
-                int total = 0;
-                string json = File.ReadAllText(FileName);
-                Goal goalObject = JsonConvert.DeserializeObject<Goal>(json);
-                Debug.WriteLine(File.ReadAllText(FileName));
-                if (goalObject != null)
+                if (File.Exists(FileName))
                 {
-                    total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Shopping + goalObject.Entertainment;
+                    int total = 0;
+                    string json = File.ReadAllText(FileName);
+                    Goal goalObject = JsonConvert.DeserializeObject<Goal>(json);
+                    Debug.WriteLine(File.ReadAllText(FileName));
+                    if (goalObject != null)
+                    {
+                        total = goalObject.Food + goalObject.Housing + goalObject.Miscellaneous + goalObject.Transportation + goalObject.Shopping + goalObject.Entertainment;
+                    }
+                    goal.Text = "Total Budget set is " + total;
                 }
-                goal.Text = "Total Budget set is " + total;
 
 
             }
