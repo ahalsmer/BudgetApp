@@ -19,19 +19,19 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Text="Food:" />
+                <Label Grid.Row="0" VerticalTextAlignment="Center" Grid.Column="0" Text="Food:" />
                 <Editor Grid.Row="0" Grid.Column="1" x:Name="Food" Text="{Binding Food, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="1" Grid.Column="0" Text="Shopping:"/>
+                <Label Grid.Row="1" VerticalTextAlignment="Center" Grid.Column="0" Text="Shopping:"/>
                 <Editor Grid.Row="1" Grid.Column="1" x:Name="Shopping" Text="{Binding Shopping, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="2" Grid.Column="0" Text="Housing:"/>
+                <Label Grid.Row="2" VerticalTextAlignment="Center" Grid.Column="0" Text="Housing:"/>
                 <Editor Grid.Row="2" Grid.Column="1" x:Name="Housing" Text="{Binding Housing, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="3" Grid.Column="0" Text="Transportation:"/>
+                <Label Grid.Row="3" VerticalTextAlignment="Center" Grid.Column="0" Text="Transportation:"/>
                 <Editor Grid.Row="3" Grid.Column="1" x:Name="Transportation" Text="{Binding Transportation, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="4" Grid.Column="0" Text="Entertainment:"/>
+                <Label Grid.Row="4" VerticalTextAlignment="Center" Grid.Column="0" Text="Entertainment:"/>
                 <Editor Grid.Row="4" Grid.Column="1" x:Name="Entertainment" Text="{Binding Entertainment, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="5" Grid.Column="0" Text="Miscellaneous:"/>
+                <Label Grid.Row="5" VerticalTextAlignment="Center" Grid.Column="0" Text="Miscellaneous:"/>
                 <Editor Grid.Row="5" Grid.Column="1" x:Name="Miscellaneous" Text="{Binding Miscellaneous, Mode=TwoWay, FallbackValue=''}"/>
-                <Label Grid.Row="6" Grid.Column="0" Text="Date:"/>
+                <Label Grid.Row="6" VerticalTextAlignment="Center" Grid.Column="0" Text="Date:"/>
                 <DatePicker Grid.Row="6" Grid.Column="1" x:Name="Date" />
                 <Button Grid.Row="7" Grid.ColumnSpan="2" Text="Save" Clicked="Button_Clicked"/>
             </Grid>
